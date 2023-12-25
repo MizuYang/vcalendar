@@ -23,9 +23,15 @@
   </ul>
 
   <div class="mt-10">
-    <!-- 白天/黑暗模式 -->
+    <!-- 邊框設定 -->
     <button type='button'
             class='btn btn-primary'
+            @click='hasBorder=!hasBorder'>
+      {{ hasBorder?'隱藏邊框':'顯示邊框' }}
+    </button>
+    <!-- 白天/黑暗模式 -->
+    <button type='button'
+            class='btn btn-primary mx-2'
             @click='isDarkMode=!isDarkMode'>
       {{ isDarkMode?'白天模式':'黑暗模式' }}
     </button>
@@ -40,6 +46,7 @@ import 'v-calendar/style.css'
 let timer = ''
 const colors = ref(['Gray', 'Red', 'Orange', 'Yellow', 'Green', 'Teal', 'Blue', 'Indigo', 'Purple', 'Pink'])
 const selectedColorIdx = ref(0) // 用戶選擇的顏色索引
+const hasBorder = ref(true) // 是否顯示邊框
 const isDarkMode = ref(false) // 是否為黑暗模式
 const attrs = ref([
   {
