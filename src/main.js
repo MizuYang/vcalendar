@@ -7,9 +7,12 @@ import 'bootstrap'
 
 import App from './App.vue'
 
+import { setupCalendar } from 'v-calendar'
+
 const pinia = createPinia()
 const app = createApp(App)
 
+app.use(setupCalendar, {})
 app.use(router)
 app.use(pinia)
 
