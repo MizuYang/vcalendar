@@ -30,6 +30,6 @@ git commit -m 'deploy'
 
 # if you are deploying to https://<mizuyang>.github.io/<儲存庫名稱>
 # git push -f git@github.com:<mizuyang>/<儲存庫名稱>.git main:gh-pages
-git push -f https://github.com/MizuYang/<儲存庫名稱>.git main:gh-pages
+git push -f https://github.com/MizuYang/vcalendar.git main:gh-pages
 
 cd -
