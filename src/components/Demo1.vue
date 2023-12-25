@@ -1,7 +1,9 @@
 <template>
   <Calendar :initial-page="{ month: 4, year: 2019 }"
             :color="colors[selectedColorIdx].toLowerCase()"
-            :attributes="attrs" />
+            :attributes="attrs"
+            :borderless="!hasBorder"
+            :is-dark="isDarkMode" />
 
   <!-- 變更顏色按鈕 -->
   <ul class="d-flex justify-content-center color-wrap-bg mt-10 py-10">
@@ -19,6 +21,15 @@
       </button>
     </li>
   </ul>
+
+  <div class="mt-10">
+    <!-- 白天/黑暗模式 -->
+    <button type='button'
+            class='btn btn-primary'
+            @click='isDarkMode=!isDarkMode'>
+      {{ isDarkMode?'白天模式':'黑暗模式' }}
+    </button>
+  </div>
 </template>
 
 <script setup>
@@ -29,6 +40,7 @@ import 'v-calendar/style.css'
 let timer = ''
 const colors = ref(['Gray', 'Red', 'Orange', 'Yellow', 'Green', 'Teal', 'Blue', 'Indigo', 'Purple', 'Pink'])
 const selectedColorIdx = ref(0) // 用戶選擇的顏色索引
+const isDarkMode = ref(false) // 是否為黑暗模式
 const attrs = ref([
   {
     key: 'test',
@@ -78,4 +90,10 @@ function stopPlayColor () {
     background-color: var(--color);
   }
 }
+// .vc-title-wrapper {
+//   background: var(--vc-header-arrow-hover-bg);
+// }
+// .vc-header .vc-arrow {
+//   background: var(--vc-header-arrow-hover-bg);
+// }
 </style>

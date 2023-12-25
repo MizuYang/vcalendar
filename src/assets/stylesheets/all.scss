@@ -1,4 +1,10 @@
 
+.vc-header .vc-title {
+  background: var(--vc-header-arrow-hover-bg);
+}
+.vc-header .vc-arrow {
+  background: var(--vc-header-arrow-hover-bg);
+}
 @import "../../../node_modules/bootstrap/scss/functions"; 
 @import "./helpers/style/bootstrap_customized/_variables.scss";  // 自訂 bootstrap 變數
 @import "./helpers/style/bootstrap_customized/_utilities.scss";  // 自訂 bootstrap 變數
