@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  letter-spacing: 0.02rem;
+}
+// 移除 ul 圓點
+ul {
+  list-style: none;
+}
+// 移除 a 連結下底線
+a {
+  text-decoration: none;
+}
+// 移除 元素 margin-bottom 推擠
+ol, ul, dl, p, h1, h2, h3, h4, h5, h6 {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+// 滾動條
+/* 修改滾動條的顏色 */
+::-webkit-scrollbar {
+  background-color: #f5f5f5;
+  width: 12px;
+}
+/* 修改滾動條滑塊的顏色 */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+/* 修改滾動條滑軌的顏色 */
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+// ---------   Bootstrap 開始   -----------
+
+// 移除 bootstrap btn 按鈕 focus 圓框
+.btn-check:focus + .btn, .btn:focus {
+  box-shadow: none;
+}
+// 移除 bootstrap btn 點擊按鈕 focus 陰影 
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+    box-shadow:none;
+}
+// 移除 bootstrap表單元件 focus 樣式
+.form-select:focus, .form-control:focus {
+  border-color: #ced4da;
+  box-shadow: none;
+}
+.form-select {
+  font-size: 14px;
+}
+// bootstrap switch 樣式
+.form-switch .form-check-input {
+  width: 42px;
+  height: 20px;
+  background-color: #C0C0C0;
+  background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-4 -4 8 8%27%3e%3ccircle r=%273%27 fill=%27%23fff%27/%3e%3c/svg%3e') !important;
+}
+.form-switch .form-check-input:hover {
+  cursor: pointer; // 滑鼠手指樣式
+}
+.form-check-input:checked {
+  background-color: $primary;
+  border-color: $primary;
+}
+.form-check-input:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+// 移除手風琴展開陰影
+.accordion-button:not(.collapsed) {
+  box-shadow: none; // 移除陰影
+}
+
+// ---------   Bootstrap 結束   -----------

@@ -1,0 +1,494 @@
+
+// 寬度
+.w-10 {
+  width: 10%;
+}
+.w-15 {
+  width: 15%;
+}
+.w-20 {
+  width: 20%;
+}
+.w-33 {
+  width: 33%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-70 {
+  width: 70%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-85 {
+  width: 85%;
+}
+.w-90 {
+  width: 90%;
+}
+.mw-70 {
+  max-width: 70%;
+}
+
+// 高度
+.mh-100 {
+  min-height: 100%;
+}
+
+// Border 線條
+.border-none {
+  border: none;
+}
+.border-gray-s {
+  border: 1px solid #C0C0C0;
+}
+.border-bottom-gray-xl {
+  border-bottom: 4px solid #EEEEEE;
+}
+// .border-start-primary-3 {
+//   border-left: 3px solid $primary;
+// }
+.border-bottom-dark-1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.437);
+}
+// hover 下底線
+.border-bottom-1-hover:hover {
+  width: 100%;
+  padding-bottom: 2px;
+  border-bottom: 1px solid darkgray;
+}
+// 透明下底線,防止hover元素抖動
+.border-bottom-1-invisible {
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(169, 169, 169, 0);
+}
+.border-bottom-1 {
+  width: 100%;
+  padding-bottom: 2px;
+  border-bottom: 1px solid darkgray;
+}
+
+// 圓角
+.raduis-3 {
+  border-radius: 3px;
+}
+.raduis-5 {
+  border-radius: 5px;
+}
+.raduis-6 {
+  border-radius: 6px;
+}
+.raduis-8 {
+  border-radius: 8px;
+}
+.raduis-10 {
+  border-radius: 10px;
+}
+.raduis-15 {
+  border-radius: 15px;
+}
+.raduis-20 {
+  border-radius: 20px;
+}
+// 上圓角 8
+.raduis-top-8 {
+  border-radius: 8px 8px 0 0;
+}
+// 下圓角 8
+.raduis-bottom-8 {
+  border-radius: 0 0 8px 8px;
+}
+// 左上 左下 圓角
+.raduis-left-top-bottom-5 {
+  border-radius: 5px 0 0 5px;
+}
+// 右上 右下 圓角
+.raduis-right-top-bottom-5 {
+  border-radius: 0 5px 5px 0;
+}
+// 左上 右上 圓角
+.raduis-top-left-right-4 {
+  border-radius: 4px 4px 0 0;
+}
+.raduis-top-left-right-20 {
+  border-radius: 20px 20px 0 0;
+}
+
+// 文字粗體
+.fw-bold-3 {
+  font-weight: 300;
+}
+.fw-bold-4 {
+  font-weight: 400;
+}
+.fw-bold-5 {
+  font-weight: 500;
+}
+.fw-bold-7 {
+  font-weight: 700;
+}
+.fw-bold-9 {
+  font-weight: 900;
+}
+
+
+// 文字大小
+.text-11 {
+  font-size: 11px;
+}
+.text-12 {
+  font-size: 12px;
+}
+.text-13 {
+  font-size: 13px;
+}
+.text-14 {
+  font-size: 14px;
+}
+.text-15 {
+  font-size: 15px;
+}
+.text-16 {
+  font-size: 16px;
+}
+.text-18 {
+  font-size: 18px;
+}
+.text-20 {
+  font-size: 20px;
+}
+.text-22 {
+  font-size: 22px;
+}
+.text-24 {
+  font-size: 24px;
+}
+.text-26 {
+  font-size: 26px;
+}
+.text-28 {
+  font-size: 28px;
+}
+.text-30 {
+  font-size: 30px;
+}
+.text-32 {
+  font-size: 32px;
+}
+
+// 文字顏色
+.text-gray {
+  color: gray;
+}
+.text-606060 {
+  color: #606060; 
+}
+.text-707070 {
+  color: #707070; 
+}
+.text-dimgray {
+  color: dimgray; 
+}
+.text-808080 {
+  color: #808080;
+}
+.text-silver {
+  color: silver;
+}
+.text-gainsboro {
+  color: gainsboro;
+}
+.text-dark-gray {
+  color: darkgray;
+}
+.text-1A1A1ACC {
+  color: #1A1A1ACC;
+}
+
+// 文字截斷 - 單行 (記得限制寬度, 超出寬度的部分就會被截斷)
+.text-cut {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 文字截斷 - 兩行 (記得限制高度、寬度)
+.text-cut-line2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 限制文字高度為兩行
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+// 文字截斷 - 自訂行數 (記得限制高度、寬度)
+.text-cut-line {
+  display: -webkit-box;
+  -webkit-line-clamp: attr("data-cut-line"); // 限制文字高度為兩行
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.overflow-hiddenx-x {
+  overflow-x: hidden;
+}
+
+.line-30 {
+  line-height: 30px;
+}
+
+
+// 圖片
+.object-fit-cover {
+  object-fit: cover;
+}
+
+// 背景色
+.bg-fff {
+  background-color: #fff;
+}
+.bg-gray {
+  background-color: gray;
+}
+.bg-dimgray {
+  background-color: dimgray;
+}
+.bg-darkgray {
+  background-color: darkgray;
+}
+.bg-f9f9f9 {
+  background-color: #f9f9f9;
+}
+.bg-silver {
+  background-color: silver;
+}
+.bg-gainsboro {
+  background-color: gainsboro;
+}
+.bg-595959 {
+  background-color: #595959;
+}
+.bg-whitesmoke {
+  background-color: whitesmoke;
+}
+
+// 陰影
+.shadow-022 {
+  box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.25);
+}
+.shadow-024 {
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.25);
+}
+
+// 定位
+// 置中
+.position-absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.position-fixed-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 權重
+.z50 {
+  z-index: 50;
+}
+.z100 {
+  z-index: 100;
+}
+.z110 {
+  z-index: 110;
+}
+.z9999 {
+  z-index: 9999;
+}
+.z10000 {
+  z-index: 10000;
+}
+
+// 讓英文、數字可換行
+.word-break-all {
+  word-break: break-all;
+}
+
+// 強迫不換行
+.white-space-nowrap {
+  white-space:nowrap;
+}
+
+
+// // 選單按鈕 hover
+// .menu-btn-hover:hover {
+//   color: $primary !important;
+//   background-color: #F5E5D6 !important;
+// }
+// // 選單按鈕 active
+// .menu-btn-active {
+//   color: $primary !important;
+//   background-color: #F5E5D6 !important;
+// }
+// .text-primary-hover:hover {
+//   color: $primary;
+// }
+
+
+// 改變滑鼠圖標
+.cursor-text:hover {
+  cursor: text // 文字游標
+}
+.cursor-default:hover {
+  cursor: default; // 預設游標
+}
+.cursor-pointer:hover {
+  cursor: pointer;  // 手指游標
+}
+.cursor-move:hover {
+  cursor: move;  // 拖曳游標
+}
+// .cursor-not-allowed (hover顯示禁用游標)
+.btn:disabled.cursor-not-allowed {
+  pointer-events: fill; // 蓋掉bs5的pointer-events:none
+  cursor: not-allowed; // 禁用游標
+}
+.cursor-not-allowed {
+  pointer-events: fill !important; // 蓋掉bs5的pointer-events:none
+  cursor: not-allowed !important; // 禁用游標
+}
+
+// 無法反白選取文字
+.user-select-none {
+  user-select:none; /* standard syntax */
+  -webkit-user-select:none; /* for Chrome、Safari */
+  -moz-user-select:none;  /* for Mozilla、Firefox */
+}
+
+// letter-spacing
+.letter-spacing-005 {
+  letter-spacing: 0.05em;
+}
+
+// hover 倍率放大
+.scale-105:hover {
+  transform: scale(1.05);
+}
+.scale-1015:hover {
+  transform: scale(1.015);
+}
+
+
+// //? 動畫 <transition></transition>
+// // <transition name="fade">
+// .fade-enter-active,
+// .fade-leave-active {
+//   transition: opacity .3s;
+// }
+// .fade-enter-from,
+// .fade-leave-to {
+//   opacity: 0;
+// }
+// .fade-enter-to,
+// .fade-leave-from {
+//   opacity: 1;
+// }
+
+
+
+
+// //? 元件
+
+// //* 按鈕 開始
+.btn-close:focus {
+  box-shadow: none;
+}
+// //* 按鈕 結束
+
+
+
+// //* 手風琴 開始
+// // 手風琴icon定位左邊 .accordion-icon-position-start-0
+// .accordion-icon-position-start-0.accordion-button::after {
+//   position: absolute;
+//   left: 0;
+// }
+// // 手風琴icon左推25px  .icon-ms-8
+// .icon-ms-8.accordion-icon-position-start-0.accordion-button::after {
+//   margin-left: 25px;
+// }
+// // 手風琴 取消旋轉icon .accordion-rotate-0
+// .accordion-rotate-0.accordion-button:not(.collapsed)::after {
+//   transform: rotate(0);
+// }
+// // 手風琴展開樣式(白底黑字) .accordion-open-default
+// .accordion-open-default.accordion-button:not(.collapsed) {
+//   color: #000;
+//   background-color: #fff;
+// }
+// //* 手風琴 結束
+
+
+
+
+
+// //*  表格 開始
+// // 作用是讓<table>能夠使用padding推擠內間距
+// .table-collapse-separate {
+//   border-collapse: separate;
+// }
+// //* 表格 結束
+
+
+
+// //* 表單 開始
+
+// 表單欄位 *必填符號
+.required{
+  position: relative;
+  &::after {
+      content: '*';
+      position: absolute;
+      top: -8px;
+      color: red;
+      font-size: 25px;
+  }
+}
+// 隱藏 textarea 調整尺寸
+.resize-none {
+  resize: none;
+}
+// .required-symbol {
+//   position: relative;
+
+//   &::before {
+//     content: '*';
+//     position: absolute;
+//     top: -4px;
+//     left: -11px;
+//     font-size: 25px;
+//     // font-weight: 900;
+//     color: #FF1E1E;
+//   }
+// }
+
+// // checkbox
+// .form-check-input:checked {
+//   border: none;
+// }
+
+// // switch
+// // 清除border
+// .form-switch .form-check-input {
+//   border: none;
+// }
+// // switch true的樣式
+// .form-check-input:checked {
+//   background-color: #89CFFD;
+// }
+
+// //* 表單 結束
