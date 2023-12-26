@@ -91,6 +91,23 @@
       </button>
     </div>
   </div>
+
+  <!-- moveBy(num) 移動幾個月分的方法 -->
+  <div class="d-flex align-items-center justify-content-center mt-10">
+    移動
+    <input type="number"
+            class="form-control text-center mx-2"
+            v-model.number="moveByNumber"
+            min="-12"
+            max="12"
+            style="width:100px;" />
+    個月。
+    <button type='button'
+            class='btn btn-primary raduis-10 ms-5'
+            @click='moveBy'>
+      移動
+    </button>
+  </div>
 </template>
 
 <script setup>
@@ -125,6 +142,7 @@ const rowsColumns = ref({
     value: 1
   }
 })
+const moveByNumber = ref(1) // 移動幾個月份
 
 onMounted(() => {
   console.log('calendar', calendar.value)
@@ -178,6 +196,9 @@ function addRowsColumns (actionType, handleMethod) {
       if (rowsColumns.value.columns.value > 1) rowsColumns.value.columns.value--
     }
   }
+}
+async function moveBy () {
+  await calendar.value.moveBy(moveByNumber.value)
 }
 </script>
 
