@@ -1,5 +1,7 @@
 <template>
   <Calendar ref="calendar"
+            :rows="rowsColumns.rows.value"
+            :columns="rowsColumns.columns.value"
             :initial-page="date"
             :color="colors[selectedColorIdx].toLowerCase()"
             :attributes="attrs"
@@ -57,6 +59,38 @@
       {{ isExpanded?'取消全螢幕':'全螢幕顯示' }}
     </button>
   </div>
+
+  <!-- 設定 rows, columns -->
+  <div class="mt-10">
+    <div class="mb-2">
+      <button type='button'
+              class='btn btn-success mx-2'
+              @click='addRowsColumns("row", "add")'
+              :disabled="rowsColumns.rows.value>=4">
+        新增一行
+      </button>
+      <button type='button'
+              class='btn btn-secondary'
+              @click='addRowsColumns("row", "lose")'
+              :disabled="rowsColumns.rows.value<=1">
+        減少一行
+      </button>
+    </div>
+    <div>
+      <button type='button'
+              class='btn btn-success mx-2'
+              @click='addRowsColumns("column", "add")'
+              :disabled="rowsColumns.columns.value>=3">
+        新增一列
+      </button>
+      <button type='button'
+              class='btn btn-secondary'
+              @click='addRowsColumns("column", "lose")'
+              :disabled="rowsColumns.columns.value<=1">
+        減少一列
+      </button>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -83,6 +117,14 @@ const attrs = ref([
 ])
 // const date = ref(new Date(2023, 1, 15))
 const date = ref({ month: 1, year: 2023 })
+const rowsColumns = ref({
+  rows: {
+    value: 1
+  },
+  columns: {
+    value: 1
+  }
+})
 
 onMounted(() => {
   console.log('calendar', calendar.value)
@@ -114,6 +156,28 @@ function moveToday () {
   const d = new Date().getDate()
 
   attrs.value[0].dates = new Date(`${y}/${m}/${d}`)
+}
+// 參數: (行或列, 新增或減少)
+function addRowsColumns (actionType, handleMethod) {
+  if (actionType === 'row') {
+    // 行
+    if (handleMethod === 'add') {
+      // 新增: 最多四行
+      if (rowsColumns.value.rows.value < 4) rowsColumns.value.rows.value++
+    } else {
+      // 減少: 大於一行才能減少
+      if (rowsColumns.value.rows.value > 1) rowsColumns.value.rows.value--
+    }
+  } else {
+    // 列
+    if (handleMethod === 'add') {
+      // 新增: 最多三列
+      if (rowsColumns.value.columns.value < 3) rowsColumns.value.columns.value++
+    } else {
+      // 減少: 大於一列才能減少
+      if (rowsColumns.value.columns.value > 1) rowsColumns.value.columns.value--
+    }
+  }
 }
 </script>
 
