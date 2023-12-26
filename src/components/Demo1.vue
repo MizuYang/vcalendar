@@ -108,6 +108,21 @@
       移動
     </button>
   </div>
+
+  <!-- transition -->
+  <div class="d-flex align-itens-center justify-content-center mt-10">
+    <p class="my-auto me-5">選擇 moveBy 動畫</p>
+    <select class="form-select"
+            ref="transitionSelect"
+            v-model="moveTransition"
+            style="width:100px;">
+      <option v-for="(item,idx) in moveTransitionData"
+              :key="idx"
+              :value="item">
+        {{ item }}
+      </option>
+    </select>
+  </div>
 </template>
 
 <script setup>
@@ -143,6 +158,9 @@ const rowsColumns = ref({
   }
 })
 const moveByNumber = ref(1) // 移動幾個月份
+const moveTransition = ref('slide-h') // 移動動畫
+const moveTransitionData = ref(['slide-h', 'slide-v', 'fade', 'none'])
+const transitionSelect = ref(null)
 
 onMounted(() => {
   console.log('calendar', calendar.value)
@@ -198,7 +216,10 @@ function addRowsColumns (actionType, handleMethod) {
   }
 }
 async function moveBy () {
-  await calendar.value.moveBy(moveByNumber.value)
+  await calendar.value.moveBy(moveByNumber.value, {
+    // transition: slide-h, slide-v, fade, none
+    transition: moveTransition.value
+  })
 }
 </script>
 
