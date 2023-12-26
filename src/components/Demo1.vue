@@ -1,10 +1,24 @@
 <template>
-  <Calendar :initial-page="{ month: 4, year: 2019 }"
+  <Calendar ref="calendar"
+            :initial-page="date"
             :color="colors[selectedColorIdx].toLowerCase()"
             :attributes="attrs"
             :borderless="!hasBorder"
             :is-dark="isDarkMode"
-            :expanded="isExpanded" />
+            :expanded="isExpanded">
+    <template #footer>
+      <div class="px-4 pb-3">
+        <button
+          type="button"
+          class="w-100 btn btn-primary raduis-15 border-none fw-bold-9"
+          @click="moveToday"
+          :style="`background-color:${colors[selectedColorIdx].toLowerCase()};`"
+        >
+          今天
+        </button>
+      </div>
+    </template>
+  </Calendar>
 
   <!-- 變更顏色按鈕 -->
   <ul class="d-flex justify-content-center color-wrap-bg mt-10 py-10">
@@ -51,6 +65,7 @@ import { Calendar, DatePicker } from 'v-calendar' // eslint-disable-line
 import 'v-calendar/style.css'
 
 let timer = ''
+const calendar = ref(null)
 const colors = ref(['Gray', 'Red', 'Orange', 'Yellow', 'Green', 'Teal', 'Blue', 'Indigo', 'Purple', 'Pink'])
 const selectedColorIdx = ref(0) // 用戶選擇的顏色索引
 const hasBorder = ref(true) // 是否顯示邊框
@@ -58,14 +73,20 @@ const isDarkMode = ref(false) // 是否為黑暗模式
 const isExpanded = ref(false) // 是否全螢幕顯示
 const attrs = ref([
   {
-    key: 'test',
+    key: 'moveToday',
     highlight: true,
+    // 設定單一日期
+    // dates: new Date(2019, 3, 15)
     // 設定日期區間
-    dates: { start: new Date(2019, 3, 15), end: new Date(2019, 3, 19) }
+    dates: { start: new Date(2023, 0, 15), end: new Date(2023, 0, 19) }
   }
 ])
+// const date = ref(new Date(2023, 1, 15))
+const date = ref({ month: 1, year: 2023 })
 
 onMounted(() => {
+  console.log('calendar', calendar.value)
+
   autoPlayColor()
 })
 
@@ -84,6 +105,15 @@ function autoPlayColor () {
 }
 function stopPlayColor () {
   clearInterval(timer)
+}
+function moveToday () {
+  calendar.value.move(new Date())
+
+  const y = new Date().getFullYear()
+  const m = new Date().getMonth() + 1
+  const d = new Date().getDate()
+
+  attrs.value[0].dates = new Date(`${y}/${m}/${d}`)
 }
 </script>
 
@@ -105,10 +135,4 @@ function stopPlayColor () {
     background-color: var(--color);
   }
 }
-// .vc-title-wrapper {
-//   background: var(--vc-header-arrow-hover-bg);
-// }
-// .vc-header .vc-arrow {
-//   background: var(--vc-header-arrow-hover-bg);
-// }
 </style>
