@@ -1,5 +1,5 @@
 <template>
-  <Calendar ref="calendar" v-model="date"
+  <DatePicker ref="calendar" v-model="date"
             :rows="rowsColumns.rows.value"
             :columns="rowsColumns.columns.value"
             :initial-page="date"
@@ -20,9 +20,11 @@
         </button>
       </div>
     </template>
-  </Calendar>
+  </DatePicker>
 
-  <p>{{date}}</p>
+  <template v-if="new Date(date).toLocaleString()!=='Invalid Date'">
+    <p>{{ new Date(date).toLocaleString() }}</p>
+  </template>
 
   <!-- 變更顏色按鈕 -->
   <ul class="d-flex justify-content-center color-wrap-bg mt-10 py-10">
