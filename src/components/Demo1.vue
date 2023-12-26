@@ -1,5 +1,5 @@
 <template>
-  <Calendar ref="calendar"
+  <Calendar ref="calendar" v-model="date"
             :rows="rowsColumns.rows.value"
             :columns="rowsColumns.columns.value"
             :initial-page="date"
@@ -21,6 +21,8 @@
       </div>
     </template>
   </Calendar>
+
+  <p>{{date}}</p>
 
   <!-- 變更顏色按鈕 -->
   <ul class="d-flex justify-content-center color-wrap-bg mt-10 py-10">
@@ -111,7 +113,7 @@
 
   <!-- transition -->
   <div class="d-flex align-itens-center justify-content-center mt-10">
-    <p class="my-auto me-5">選擇 moveBy 動畫</p>
+    <p class="my-auto me-5">選擇 Transition 動畫</p>
     <select class="form-select"
             ref="transitionSelect"
             v-model="moveTransition"
@@ -139,12 +141,49 @@ const isDarkMode = ref(false) // 是否為黑暗模式
 const isExpanded = ref(false) // 是否全螢幕顯示
 const attrs = ref([
   {
-    key: 'moveToday',
+    key: '15~19號',
     highlight: true,
     // 設定單一日期
     // dates: new Date(2019, 3, 15)
     // 設定日期區間
     dates: { start: new Date(2023, 0, 15), end: new Date(2023, 0, 19) }
+  },
+  {
+    key: '2號',
+    highlight: {
+      color: 'red',
+      fillMode: 'light'
+    },
+    dates: new Date(2023, 0, 2)
+  },
+  {
+    key: '5,6號',
+    highlight: {
+      start: { fillMode: 'outline' },
+      base: { fillMode: 'light' },
+      end: { fillMode: 'outline' }
+    },
+    dates: { start: new Date(2023, 0, 5), end: new Date(2023, 0, 6) }
+  },
+  {
+    key: '26,27號',
+    dates: { start: new Date(2023, 0, 26), end: new Date(2023, 0, 27) },
+    dot: {
+      style: {
+        backgroundColor: 'brown'
+      },
+      class: 'mb-1'
+    }
+  },
+  {
+    key: '9,10號',
+    dates: { start: new Date(2023, 0, 9), end: new Date(2023, 0, 10) },
+    bar: {
+      style: {
+        backgroundColor: 'blue'
+      },
+      class: 'mb-1'
+    }
   }
 ])
 // const date = ref(new Date(2023, 1, 15))
