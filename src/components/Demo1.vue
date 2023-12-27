@@ -10,7 +10,17 @@
               :attributes="attrs"
               :borderless="!hasBorder"
               :is-dark="isDarkMode"
-              :expanded="isExpanded">
+              :expanded="isExpanded"
+              @dayclick="dayclick"
+              @daymouseenter="daymouseenter"
+              @daymouseleave="daymouseleave"
+              @dayfocusin="dayfocusin"
+              @dayfocusout="dayfocusout"
+              @daykeydown="daykeydown"
+              @transitionStart="transitionStart"
+              @transitionEnd="transitionEnd"
+              @didMove="didMove"
+              >
 
     <!-- 自訂 popover slot 模板 //! 勿刪(Demo用) -->
     <!-- <template #day-popover="{ day, format, masks, attributes }"> -->
@@ -96,7 +106,7 @@
       {{ isRangeMode?'使用單一日期模式':'使用區間日期模式' }}
     </button>
     <!-- 按鈕操控日曆顯示 -->
-    <DatePicker v-model="date">
+    <DatePicker>
       <template #default="{ togglePopover }">
         <button
           class="btn btn-primary mx-2"
@@ -343,6 +353,34 @@ async function moveBy () {
     transition: moveTransition.value
   })
 }
+function dayclick (e) {
+  console.log('點擊日期觸發 dayclick: ', e)
+}
+function daymouseenter (e) {
+  // console.log('滑鼠進入時觸發 daymouseenter: ', e)
+}
+function daymouseleave (e) {
+  // console.log('滑鼠離開時觸發 daymouseleave: ', e)
+}
+function dayfocusin (e) {
+  // console.log('滑鼠或鍵盤 focus日期時觸發 dayfocusin: ', e)
+}
+function dayfocusout (e) {
+  // console.log('滑鼠或鍵盤離開日期 focus 時觸發 dayfocusout: ', e)
+}
+function daykeydown (e) {
+  console.log('鍵盤按下時觸發 daykeydown: ', e)
+}
+function transitionStart () {
+  console.log('漸變開始時觸發 transitionStart')
+}
+function transitionEnd () {
+  console.log('漸變結束時觸發 transitionEnd')
+}
+function didMove (e) {
+  console.log('日曆的年或月份有移動就觸發 didMove: ', e)
+}
+
 </script>
 
 <style lang="scss" scoped>
