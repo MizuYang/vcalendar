@@ -1,5 +1,6 @@
 <template>
   <DatePicker ref="calendar" v-model="date"
+            :is-range="isRangeMode"
             :rows="rowsColumns.rows.value"
             :columns="rowsColumns.columns.value"
             :initial-page="date"
@@ -8,6 +9,8 @@
             :borderless="!hasBorder"
             :is-dark="isDarkMode"
             :expanded="isExpanded">
+
+    <!-- v-slot:footer -->
     <template #footer>
       <div class="px-4 pb-3">
         <button
@@ -61,6 +64,12 @@
             class='btn btn-primary mx-2'
             @click='isExpanded=!isExpanded'>
       {{ isExpanded?'取消全螢幕':'全螢幕顯示' }}
+    </button>
+    <!-- 日期區間選擇模式設定 -->
+    <button type='button'
+            class='btn btn-primary mx-2'
+            @click='isRangeMode=!isRangeMode'>
+      {{ isRangeMode?'使用單一日期模式':'使用區間日期模式' }}
     </button>
   </div>
 
@@ -234,6 +243,7 @@ const moveByNumber = ref(1) // 移動幾個月份
 const moveTransition = ref('slide-h') // 移動動畫
 const moveTransitionData = ref(['slide-h', 'slide-v', 'fade', 'none'])
 const transitionSelect = ref(null)
+const isRangeMode = ref(false) // 是否為日期區間選擇模式
 
 onMounted(() => {
   console.log('calendar', calendar.value)
