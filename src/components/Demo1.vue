@@ -1,14 +1,15 @@
 <template>
-  <DatePicker ref="calendar" v-model="date"
-            :is-range="isRangeMode"
-            :rows="rowsColumns.rows.value"
-            :columns="rowsColumns.columns.value"
-            :initial-page="date"
-            :color="colors[selectedColorIdx].toLowerCase()"
-            :attributes="attrs"
-            :borderless="!hasBorder"
-            :is-dark="isDarkMode"
-            :expanded="isExpanded">
+  <DatePicker ref="calendar"
+              v-model="date"
+              :is-range="isRangeMode"
+              :rows="rowsColumns.rows.value"
+              :columns="rowsColumns.columns.value"
+              :initial-page="date"
+              :color="colors[selectedColorIdx].toLowerCase()"
+              :attributes="attrs"
+              :borderless="!hasBorder"
+              :is-dark="isDarkMode"
+              :expanded="isExpanded">
 
     <!-- v-slot:footer -->
     <template #footer>
@@ -27,6 +28,10 @@
 
   <template v-if="new Date(date).toLocaleString()!=='Invalid Date'">
     <p>{{ new Date(date).toLocaleString() }}</p>
+  </template>
+  <template v-else-if="date.start&&date.end">
+    <p>{{ new Date(date.start).toLocaleString() }}</p>
+    <p>{{ new Date(date.end).toLocaleString() }}</p>
   </template>
 
   <!-- 變更顏色按鈕 -->
@@ -322,6 +327,14 @@ async function moveBy () {
   &:hover {
     color: #fff;
     background-color: var(--color);
+  }
+}
+// 移除 mode="dateTime" 時間日期選擇器的 border
+.vc-base-select {
+  & select.vc-align-left,
+  & select.vc-align-right,
+  & {
+    border: none;
   }
 }
 </style>
