@@ -4,7 +4,7 @@
  - 檔案中單一匯入日曆元件 (非全域註冊 Component)
  - attributes 
    - dot、bar、popover、customData ...大部分的功能
- - <Calendar /> 的屬性
+ - 日曆元件的屬性
    - is-range 未來可能會被移除, 改使用 v-model.range
    - 主題色、黑暗模式、無邊框、最大最小日期、行、列、全螢幕顯示....等 常用屬性
  - 設定日期
