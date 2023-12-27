@@ -95,6 +95,17 @@
             @click='isRangeMode=!isRangeMode'>
       {{ isRangeMode?'使用單一日期模式':'使用區間日期模式' }}
     </button>
+    <!-- 按鈕操控日曆顯示 -->
+    <DatePicker v-model="date">
+      <template #default="{ togglePopover }">
+        <button
+          class="btn btn-primary mx-2"
+          @click="togglePopover"
+        >
+          點我顯示日曆 (#default)
+        </button>
+      </template>
+    </DatePicker>
   </div>
 
   <!-- 設定 rows, columns -->
