@@ -5,6 +5,14 @@
 .vc-header .vc-arrow {
   background: var(--vc-header-arrow-hover-bg);
 }
+// 移除 mode="dateTime" 時間日期選擇器的 border
+.vc-base-select {
+  & select.vc-align-left,
+  & select.vc-align-right,
+  & .vc-focus {
+    border: none;
+  }
+}
 @import "../../../node_modules/bootstrap/scss/functions"; 
 @import "./helpers/style/bootstrap_customized/_variables.scss";  // 自訂 bootstrap 變數
 @import "./helpers/style/bootstrap_customized/_utilities.scss";  // 自訂 bootstrap 變數
