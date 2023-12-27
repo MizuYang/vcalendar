@@ -1,6 +1,7 @@
 <template>
   <DatePicker ref="calendar"
               v-model="date"
+              mode="dateTime"
               :is-range="isRangeMode"
               :rows="rowsColumns.rows.value"
               :columns="rowsColumns.columns.value"
@@ -10,6 +11,24 @@
               :borderless="!hasBorder"
               :is-dark="isDarkMode"
               :expanded="isExpanded">
+
+    <!-- 自訂 popover slot 模板 //! 勿刪(Demo用) -->
+    <!-- <template #day-popover="{ day, format, masks, attributes }"> -->
+      <!-- masks 的值可參考 -->
+      <!-- https://vcalendar.io/calendar/api.html#methods:~:text=%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C-,masks,-%3A%20%7B%0A%20%20%20%20title -->
+      <!-- <time>{{ format(day.date, masks.dayPopover) }}</time>
+
+      <div class="px-2">
+        <ul>
+          <li
+            v-for="{ key, customData } in attributes"
+            :key="key"
+            class="">
+            customData: {{ customData?.content }} <br />
+          </li>
+        </ul>
+      </div>
+    </template> -->
 
     <!-- v-slot:footer -->
     <template #footer>
@@ -232,6 +251,10 @@ const attrs = ref([
     popover: {
       label: 'repeat-weekdays:7 hover時顯示'
     }
+    // 自訂資料 搭配 #day-popover 使用 //! 勿刪(Demo用)
+    // customData: {
+    //   content: 'repeat-weekdays:7 hover時顯示'
+    // }
   }
 ])
 // const date = ref(new Date(2023, 1, 15))
