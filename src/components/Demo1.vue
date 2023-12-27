@@ -130,7 +130,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue' // eslint-disable-line
+import { ref, computed, onMounted } from 'vue' // eslint-disable-line
 import { Calendar, DatePicker } from 'v-calendar' // eslint-disable-line
 import 'v-calendar/style.css'
 
@@ -177,7 +177,7 @@ const attrs = ref([
       class: 'mb-1'
     },
     popover: {
-      label: '這兩天放假喔XD (focus)',
+      label: '該日期 focus 時才顯示',
       visibility: 'focus' // 該日期 focus 時才顯示
     }
   },
@@ -191,7 +191,7 @@ const attrs = ref([
       class: 'mb-1'
     },
     popover: {
-      label: '這兩天放假喔XD (hover)'
+      label: '該日期 hover 時才顯示'
     }
   },
   {
@@ -204,8 +204,19 @@ const attrs = ref([
       class: 'mb-1'
     },
     popover: {
-      label: '這兩天放假喔XD (hover)',
+      label: '該日期 click 時才顯示',
       visibility: 'click' // 該日期 click 時才顯示
+    }
+  },
+  {
+    key: '每週六都加上dot',
+    dates: { repeat: { weekdays: 7 } }, // 每週六
+    dot: {
+      class: 'mb-1',
+      color: 'red'
+    },
+    popover: {
+      label: 'repeat-weekdays:7 hover時顯示'
     }
   }
 ])
