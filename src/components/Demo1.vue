@@ -175,6 +175,10 @@ const attrs = ref([
         backgroundColor: 'brown'
       },
       class: 'mb-1'
+    },
+    popover: {
+      label: '這兩天放假喔XD (focus)',
+      visibility: 'focus' // 該日期 focus 時才顯示
     }
   },
   {
@@ -185,6 +189,23 @@ const attrs = ref([
         backgroundColor: 'blue'
       },
       class: 'mb-1'
+    },
+    popover: {
+      label: '這兩天放假喔XD (hover)'
+    }
+  },
+  {
+    key: '31號',
+    dates: new Date(2023, 0, 31),
+    dot: {
+      style: {
+        backgroundColor: 'green'
+      },
+      class: 'mb-1'
+    },
+    popover: {
+      label: '這兩天放假喔XD (hover)',
+      visibility: 'click' // 該日期 click 時才顯示
     }
   }
 ])
